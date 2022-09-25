@@ -22,3 +22,5 @@ jobs:
         with:
           artifacts: "clique.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
+          commit: main
+          tag: ${{ github.run_number }}
