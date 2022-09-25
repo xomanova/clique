@@ -23,4 +23,4 @@ jobs:
           artifacts: "clique.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: main
-          tag: ${{ github.run_number }}
+          tag: clique-wotlk-classic-${{ github.run_number }}
