@@ -507,7 +507,6 @@ function panel.refresh()
         local dbKey = string.format("spec%d_profileKey", i)
         local dropdown = panel.talentProfiles[i]
         UIDropDownMenu_Initialize(dropdown, spec_initialize)
-        print(settings[dbKey])
         UIDropDownMenu_SetSelectedValue(dropdown, settings[dbKey] or currentProfile)
         UIDropDownMenu_SetText(dropdown, settings[dbKey] or currentProfile)
     end
