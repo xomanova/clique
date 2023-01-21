@@ -16,13 +16,12 @@ jobs:
           ref: ${{ github.sha }}
 
       - name: Bump version and push tag
-        id: gitversion
         uses: anothrNick/github-tag-action@1.55.0
+        id: versioning
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: main
           RELEASE_BRANCHES: main
-          INITIAL_VERSION: 1.0.0
           WITH_V: true
 
       - name: Build Release
@@ -38,4 +37,4 @@ jobs:
           artifacts: "clique.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: main
-          tag: clique-wotlk-classic-${{ steps.gitversion.output.new_tag }}
+          tag: clique-wotlk-classic-${{ steps.versioning.outputs.new_tag }}
