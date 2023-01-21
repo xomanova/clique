@@ -1,7 +1,10 @@
-on: 
-  push:
+name: release
+on:
+  pull_request:
+    types:
+      - closed
     branches:
-    - main
+      - main
 
 jobs:
   publish:
@@ -9,7 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
-      
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.55.0
+        id: versioning
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: main
+          RELEASE_BRANCHES: main
+          WITH_V: true
+
       - name: Build Release
         uses: thedoctor0/zip-release@master
         with:
@@ -23,4 +37,4 @@ jobs:
           artifacts: "clique.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: main
-          tag: clique-wotlk-classic-${{ github.run_number }}
+          tag: clique-wotlk-classic-${{ steps.versioning.outputs.new_tag }}
