@@ -1,4 +1,4 @@
-## Interface: 90207
+## Interface: 30401
 ## Title: Clique
 ## Author: Cladhaire
 ## Version: v3.3.0
