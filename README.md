@@ -1,3 +1,4 @@
+# Deprecated: This is not maintained, consider using https://www.curseforge.com/wow/addons/clique instead.
 # Clique WotLK Classic
 
 [![release](https://github.com/xomanova/clique/actions/workflows/release.yml/badge.svg)](https://github.com/xomanova/clique/actions/workflows/release.yml) 
